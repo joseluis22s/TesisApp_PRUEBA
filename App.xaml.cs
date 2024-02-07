@@ -8,7 +8,7 @@ namespace TesisApp
         {
             InitializeComponent();
 
-            MainPage = new IniciarSesionPage();
+            MainPage = new NavigationPage(new IniciarSesionPage());
         }
     }
 }
