@@ -58,7 +58,7 @@
                             HorizontalOptions="FillAndExpand"
                             IsTextPredictionEnabled="False"
                             Placeholder="Usuario"
-                            VerticalTextAlignment="End" />
+                            VerticalTextAlignment="End" Text="{Binding Usuario}"/>
                     </Grid>
                 </Frame>
                 <Frame
@@ -74,7 +74,7 @@
                             Grid.Column="1"
                             IsPassword="True"
                             Placeholder="Contraseña"
-                            VerticalTextAlignment="End" />
+                            VerticalTextAlignment="End" Text="{Binding Contrasena}" />
                     </Grid>
                 </Frame>
                 <Label
@@ -85,13 +85,8 @@
                 <Button
                     Grid.Row="3"
                     Margin="0,15,0,0"
-                    Command="{Binding PushAsyncPaginaPrincipalCommand}"
+                    Command="{Binding PushAsyncPageCommand}"
                     Text="Ingresar" />
-                <!--<Button
-                    Grid.Row="3"
-                    Margin="0,15,0,0"
-                    Clicked="Button_Clicked"
-                    Text="Ingresar" />-->
                 <Grid
                     Grid.Row="4"
                     Margin="0,15"

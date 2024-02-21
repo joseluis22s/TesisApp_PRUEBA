@@ -1,120 +1,92 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Input;
+using TesisApp.Views;
+using CommunityToolkit.Maui.Alerts;
+using System;
+
 
 namespace TesisApp.ViewModels
 {
-    // - V1
-    // Implmemtación de la interfaz "INotifyPropertyChanged" que proporciona a
-    // una clase la capacidad de generar el evento PropertyChanged cada vez que
-    // cambia una de sus propiedades.
     internal class IniciarSesionViewModel: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string _usuario;
         private string _contrasena;
-        public Command PushAsyncPaginaPrincipalCommand
+
+        public string Usuario
         {
             get
             {
-                return new Command(async () =>
+                if (string.IsNullOrEmpty(_usuario))
                 {
-                    await Application.Current.MainPage.Navigation.PushAsync(new Views.PaginaPrincipalPage());
-                });
+                    return _usuario = string.Empty;
+                }
+                return _usuario;
             }
-        }
-        public string Usuario
-        {
-            get => _usuario;
-            set { _usuario = value; }
+            set => _usuario = value;
         }
         public string Contrasena
         {
-            get => _contrasena;
-            set { _contrasena = value; }
+            get
+            {
+                if (string.IsNullOrEmpty(_contrasena))
+                {
+                    return _contrasena = string.Empty;
+                }
+                return _contrasena;
+            }
+            set => _contrasena = value;
+            
         }
+        public Command PushAsyncPageCommand {get ; set;}
         public IniciarSesionViewModel()
         {
+            PushAsyncPageCommand = new Command(PushAsyncPage);
         }
         public void OnPropertyChanged([CallerMemberName] string name = "") =>
             PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(name));
 
-
-
-
-        //// - V1
-        ////El mecanismo de enlace de datos de .NET MAUI adjunta un controlador a
-        ////este evento "PropertyChanged" para que reciba una notificación cuando
-        ////cambie una propiedad y mantenga el destino actualizado con el nuevo valor.
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //// - V1
-        ////Establecer los atributos de las propiedades
-
-        //// - V1
-        ////Atributos:
-        //private string _usuario;
-        //private string _contrasena;
-
-        //// -V3
-        //// Interfaz "INavigationService"
-        //public INavigation Navigation { get; set; }
-
-
-
-        //// -V3
-        //// Comandos: Interfaz de comandos "ICommand" proporciona un enfoque
-        //// alternativo para implementar comandos que se adapta mucho mejor
-        //// a la arquitectura MVVM. Para eventos clicked o tappep.
-        //// Los comandos son métodos que se ejecutan en respuesta a una actividad
-        //// específica en la vista. SET es private por que nadie accede a él.
-        //public Command PushAsyncPaginaPrincipalCommand
-        //{
-        //    get
-        //    {
-        //        return new Command(async () =>
-        //        {
-        //            await Application.Current.MainPage.Navigation.PushAsync(new Views.PaginaPrincipalPage());
-        //        });
-        //    }
-        //}
-
-
-        //// - V1
-        ////Propiedades:
-        //public string Usuario
-        //{
-        //    get => _usuario;
-        //    set { _usuario = value;}
-        //}
-        //public string Contrasena
-        //{
-        //    get => _contrasena;
-        //    set { _contrasena = value;}
-        //}
-        //// -V2
-        ////Constructor de la clase
-        //public IniciarSesionViewModel(/*INavigation navigation*/)
-        //{
-        //    //this.Navigation = navigation;
-        //    //this.PushAsyncPaginaPrincipalCommand = new Command(async () => await PushAsyncPaginaPrincipal());
-        //}
-
-        //// - V1
-        ////Método "OnPropertyChanged" controla la generación del evento a la vez
-        ////que determina automáticamente el nombre de origen de la propiedad: DateTime.
-        ////      public void OnPropertyChanged([CallerMemberName] string name = "") =>
-        ////      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        //public void OnPropertyChanged([CallerMemberName] string name = "") =>
-        //    PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(name));
-
-        //// - V4
-        ////Task
-        ////public async Task PushAsyncPaginaPrincipal()
-        ////{
-        ////    await Navigation.PushAsync(new Views.PaginaPrincipalPage());
-        ////}
-
+        public async void PushAsyncPage()
+        {
+            //await Application.Current.MainPage.Navigation.PushAsync(new PaginaPrincipalPage());
+            int respuesta = VerificarInicioSesion(Usuario, Contrasena);
+            if (respuesta == 1)
+            {
+                await Application.Current.MainPage.Navigation.PushAsync(new ConfiguracionPage());
+                return;
+            }
+            if (respuesta == 2)
+            {
+                await Application.Current.MainPage.Navigation.PushAsync(new PaginaPrincipalPage());
+                return;
+            }
+            if (respuesta == 0)
+            {
+                await Toast.Make("¡Debe llenar todos los campos!").Show();
+                return;
+            }
+            if (respuesta == -1)
+            {
+                await Toast.Make("Usuario o contraseña incorrectas").Show();
+                return;
+            }
+        }
+        public int VerificarInicioSesion(string usuario, string contrasena)
+        {
+            if (usuario.Equals("Admin") && string.IsNullOrEmpty(contrasena))
+            {
+                return 1;
+            }
+            else if (usuario.Equals("Usuario") && contrasena.Equals("1"))
+            {
+                return 2;
+            }
+            else if (string.IsNullOrEmpty(usuario) && string.IsNullOrEmpty(contrasena))
+            {
+                return 0;
+            }
+            return -1;
+        }
     }
 }
