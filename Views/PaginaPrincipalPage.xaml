@@ -9,6 +9,6 @@
             HorizontalOptions="Center"
             Text="Bienvenido a la Página Principal!"
             VerticalOptions="Center" />
-        <Label Text="{Binding Usuario}"/>
+        <Label Text="{Binding Usuario}" />
     </VerticalStackLayout>
 </ContentPage>

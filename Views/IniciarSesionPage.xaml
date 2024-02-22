@@ -16,6 +16,7 @@
             <GradientStop Offset="1.0" Color="#044fc7" />
         </LinearGradientBrush>
     </ContentPage.Background>
+    
     <VerticalStackLayout VerticalOptions="Center">
         <Frame
             Margin="0,-70"

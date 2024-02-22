@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\check_icon.png" />
 	  <None Remove="Resources\Images\circle_lock_padlock_icon.png" />
 	  <None Remove="Resources\Images\house_lock_icon.png" />
 	  <None Remove="Resources\Images\key_icon.png" />
@@ -64,6 +65,7 @@
 	  <None Remove="Resources\Images\profile_icon.png" />
 	  <None Remove="Resources\Images\profile_icon_2.png" />
 	  <None Remove="Resources\Images\shield_lock_icon.png" />
+	  <None Remove="Resources\Images\uncheck_icon.png" />
 	  <None Remove="Resources\Images\unlocked_padlock_icon.png" />
 	</ItemGroup>
 
