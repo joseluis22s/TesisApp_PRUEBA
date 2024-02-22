@@ -17,96 +17,122 @@
         BackgroundColor="#c7d7f0"
         VerticalOptions="Center">
 
+        <Border.Background>
+            <LinearGradientBrush EndPoint="2,1">
+                <GradientStop Offset="0.1" Color="#8eb0e8" />
+                <GradientStop Offset="1.0" Color="AliceBlue" />
+            </LinearGradientBrush>
+        </Border.Background>
+
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="10" />
         </Border.StrokeShape>
 
-        <VerticalStackLayout
-            Margin="10,50"
-            Padding="10,5"
-            Spacing="5">
+        <Border.Shadow>
+            <Shadow
+                Brush="Black"
+                Opacity="0.9"
+                Radius="90"
+                Offset="-20,10" />
+        </Border.Shadow>
+
+        <VerticalStackLayout Margin="10,20" Spacing="20">
             <Label
                 FontAttributes="Bold"
                 FontSize="18"
-                Text="CREAR NUEVA CUENTA" />
-            <!--<Label Text="Usuario" />-->
-            <Frame
-                Padding="10,0"
-                BackgroundColor="Transparent"
-                BorderColor="Transparent">
-                <Grid ColumnDefinitions="*,20,110">
-                    <Entry
-                        BackgroundColor="Red"
-                        HeightRequest="40"
-                        Placeholder="Usuario"
-                        PlaceholderColor="#8591a1" />
-                    <Image Grid.Column="1" Source="check_icon.png" />
-                    <Frame
-                        Grid.Column="2"
-                        Padding="10,5"
-                        BackgroundColor="White">
-                        <Label FontSize="10" Text="- Almenos una mayúscula - Mínimo 8 caracteres - Almenos un caracter especial" />
-                    </Frame>
-                </Grid>
-            </Frame>
-
-            <Frame
-                Padding="10,0"
-                BackgroundColor="Transparent"
-                BorderColor="Transparent">
-                <Grid ColumnDefinitions="*,20,110">
-                    <Entry
-                        HeightRequest="40"
-                        Placeholder="Contraseña"
-                        PlaceholderColor="#8591a1" />
-                    <Image Grid.Column="1" Source="check_icon.png" />
-                    <!--<Frame
-                        Grid.Column="2"
-                        Padding="10,5"
-                        BackgroundColor="White">
-                        <Label FontSize="10" Text="- Almenos una mayúscula - Mínimo 8 caracteres - Almenos un caracter especial" />
-                    </Frame>-->
-                </Grid>
-            </Frame>
-            <Frame
-                Padding="10,0"
-                BackgroundColor="Transparent"
-                BorderColor="Transparent">
-                <Grid ColumnDefinitions="*,20,110">
-                    <Entry
-                        HeightRequest="40"
-                        Placeholder="Confirmar contraseña"
-                        PlaceholderColor="#8591a1" />
-                    <Image Grid.Column="1" Source="uncheck_icon.png" />
-                    <Frame
-                        Grid.Column="2"
-                        Padding="10,5"
-                        
-                        BackgroundColor="White">
-                        <Label FontSize="10" Text="- Almenos una mayúscula - Mínimo 8 caracteres - Almenos un caracter especial" />
-                    </Frame>
-                </Grid>
-            </Frame>
-            <!--<Label Text="Correo" />-->
-            <Frame
-                Padding="10,0"
-                BackgroundColor="Transparent"
-                BorderColor="Transparent">
-                <Grid ColumnDefinitions="*,20,110">
-                    <Entry
-                        HeightRequest="40"
-                        Placeholder="Correo"
-                        PlaceholderColor="#8591a1" />
-                    <Image Grid.Column="1" Source="uncheck_icon.png" />
-                    <!--<Frame
-                        Grid.Column="2"
-                        Padding="10,5"
-                        BackgroundColor="White">
-                        <Label FontSize="10" Text="- Almenos una mayúscula - Mínimo 8 caracteres - Almenos un caracter especial" />
-                    </Frame>-->
-                </Grid>
-            </Frame>
-            <Button Text="Crear" />
+                Text="CREAR NUEVA CUENTA" Margin="0,0,0,15"/>
+            <Grid ColumnDefinitions="*,110">
+                <VerticalStackLayout Spacing="8">
+                    <Border Grid.ColumnSpan="2" BackgroundColor="White">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20" />
+                        </Border.StrokeShape>
+                        <Grid
+                            Margin="7,0,6,0"
+                            ColumnDefinitions="*,18"
+                            ColumnSpacing="1">
+                            <Entry
+                                HeightRequest="40"
+                                Placeholder="Usuario"
+                                PlaceholderColor="#8591a1" />
+                            <Image
+                                Grid.Column="1"
+                                HeightRequest="20"
+                                Source="check_icon.png" />
+                        </Grid>
+                    </Border>
+                    <Border Grid.ColumnSpan="2" BackgroundColor="White">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20" />
+                        </Border.StrokeShape>
+                        <Grid
+                            Margin="7,0,6,0"
+                            ColumnDefinitions="*,18"
+                            ColumnSpacing="1">
+                            <Entry
+                                HeightRequest="40"
+                                Placeholder="Contraseña"
+                                PlaceholderColor="#8591a1" />
+                            <Image
+                                Grid.Column="1"
+                                HeightRequest="20"
+                                Source="check_icon.png" />
+                        </Grid>
+                    </Border>
+                    <Border Grid.ColumnSpan="2" BackgroundColor="White">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20" />
+                        </Border.StrokeShape>
+                        <Grid
+                            Margin="7,0,6,0"
+                            ColumnDefinitions="*,18"
+                            ColumnSpacing="1">
+                            <Entry
+                                HeightRequest="40"
+                                Placeholder="Confirmar contraseña"
+                                PlaceholderColor="#8591a1" />
+                            <Image
+                                Grid.Column="1"
+                                HeightRequest="20"
+                                Source="uncheck_icon.png" />
+                        </Grid>
+                    </Border>
+                    <Border Grid.ColumnSpan="2" BackgroundColor="White">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20" />
+                        </Border.StrokeShape>
+                        <Grid
+                            Margin="7,0,6,0"
+                            ColumnDefinitions="*,18"
+                            ColumnSpacing="1">
+                            <Entry
+                                HeightRequest="40"
+                                Placeholder="Correo"
+                                PlaceholderColor="#8591a1" />
+                            <Image
+                                Grid.Column="1"
+                                HeightRequest="20"
+                                Source="uncheck_icon.png" />
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+                <Border IsVisible="False"
+                    Grid.Column="1"
+                    Margin="5,0"
+                    Padding="5,8"
+                    BackgroundColor="White"
+                    VerticalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="7" />
+                    </Border.StrokeShape>
+                    <Label
+                        FontSize="8.9"
+                        Text="- Almenos una mayúscula.                            - Mínimo 8 caracteres.                            - Almenos un caracter especial."
+                        VerticalTextAlignment="Center" />
+                </Border>
+            </Grid>
+            <Button Text="Crear" Margin="0,10,0,0"/>
+            <Label Text="Cancelar" TextDecorations="Underline" HorizontalOptions="Center" Margin="0,5"/>
         </VerticalStackLayout>
     </Border>
 </ContentPage>
