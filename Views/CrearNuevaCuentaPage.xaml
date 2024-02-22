@@ -36,60 +36,51 @@
                     Offset="-20,0" />
             </Border.Shadow>
 
-            <VerticalStackLayout Margin="10,20" Spacing="20">
+            <VerticalStackLayout Margin="10,20,10,35" Spacing="20">
                 <Label
                     Margin="0,0,0,15"
                     FontAttributes="Bold"
                     FontSize="18"
                     Text="CREAR NUEVA CUENTA" />
-                <Grid ColumnDefinitions="*,Auto">
+                <Grid Margin="20,0,40,0">
                     <VerticalStackLayout Spacing="8">
                         <Grid
                             Margin="7,0,6,0"
                             ColumnDefinitions="*,18"
-                            ColumnSpacing="1">
+                            ColumnSpacing="2">
                             <Entry
                                 HeightRequest="40"
-                                Placeholder="Usuario"
+                                Placeholder=" Usuario"
                                 PlaceholderColor="#8591a1" />
                             <Image
                                 Grid.Column="1"
                                 HeightRequest="20"
                                 Source="check_icon.png" />
                         </Grid>
-                        <!--</Border>-->
-                        <!--<Border Grid.ColumnSpan="2" BackgroundColor="White">-->
-                        <!--<Border.StrokeShape>
-                        <RoundRectangle CornerRadius="20" />
-                    </Border.StrokeShape>-->
                         <Grid
                             Margin="7,0,6,0"
                             ColumnDefinitions="*,18"
                             ColumnSpacing="1">
                             <Entry
                                 HeightRequest="40"
-                                Placeholder="Contraseña"
+                                Placeholder=" Contraseña"
                                 PlaceholderColor="#8591a1" />
                             <Image
                                 Grid.Column="1"
                                 HeightRequest="20"
                                 Source="check_icon.png" />
                         </Grid>
-                        <!--</Border>-->
                         <Border
                             Grid.ColumnSpan="2"
                             BackgroundColor="Transparent"
                             Stroke="Transparent">
-                            <!--<Border.StrokeShape>
-                                <RoundRectangle CornerRadius="20" />
-                            </Border.StrokeShape>-->
                             <Grid
                                 Margin="7,0,6,0"
                                 ColumnDefinitions="*,18"
                                 ColumnSpacing="1">
                                 <Entry
                                     HeightRequest="40"
-                                    Placeholder="Confirmar contraseña"
+                                    Placeholder=" Confirmar contraseña"
                                     PlaceholderColor="#8591a1" />
                                 <Image
                                     Grid.Column="1"
@@ -101,16 +92,13 @@
                             Grid.ColumnSpan="2"
                             BackgroundColor="Transparent"
                             Stroke="Transparent">
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="20" />
-                            </Border.StrokeShape>
                             <Grid
                                 Margin="7,0,6,0"
                                 ColumnDefinitions="*,18"
                                 ColumnSpacing="1">
                                 <Entry
                                     HeightRequest="40"
-                                    Placeholder="Correo"
+                                    Placeholder=" Correo"
                                     PlaceholderColor="#8591a1" />
                                 <Image
                                     Grid.Column="1"
@@ -119,34 +107,34 @@
                             </Grid>
                         </Border>
                     </VerticalStackLayout>
-                    <Border
-                        Grid.Column="1"
-                        Margin="5,0"
-                        Padding="5,8"
+                    <Border IsVisible="False"
+                        Padding="7"
                         BackgroundColor="White"
-                        IsVisible="False"
-                        VerticalOptions="Center">
+                        HorizontalOptions="End"
+                        VerticalOptions="Start" >
                         <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="7" />
+                            <RoundRectangle CornerRadius="5" />
                         </Border.StrokeShape>
-                        <Label
-                            FontSize="8.9"
-                            Text="- Almenos una mayúscula.                            - Mínimo 8 caracteres.                            - Almenos un caracter especial."
-                            VerticalTextAlignment="Center" />
+                        <VerticalStackLayout>
+                            <Label FontSize="10" Text="- Almenos una mayúscula" />
+                            <Label FontSize="10" Text="- Mínimo 8 caracteres" />
+                            <Label FontSize="10" Text="- Almenos un caracter especial" />
+                        </VerticalStackLayout>
                     </Border>
                 </Grid>
             </VerticalStackLayout>
+
         </Border>
         <Button
             Grid.Row="1"
-            Margin="50,50,50,15"
+            Margin="50,40,50,15"
             Text="Crear" />
         <Label
             Grid.Row="2"
             Margin="0,5"
             HorizontalOptions="Center"
             Text="Cancelar"
+            TextColor="#b0cfff"
             TextDecorations="Underline" />
     </Grid>
-
 </ContentPage>
