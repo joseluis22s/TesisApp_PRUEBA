@@ -2,7 +2,6 @@
 using System.Runtime.CompilerServices;
 using TesisApp.Views;
 using CommunityToolkit.Maui.Alerts;
-using System;
 
 
 namespace TesisApp.ViewModels
@@ -39,15 +38,17 @@ namespace TesisApp.ViewModels
             set => _contrasena = value;
             
         }
-        public Command PushAsyncPageCommand {get ; set;}
+        public Command PushAsyncPaginaPrincipalPageCommand { get ; set;}
+        public Command PushAsyncpCrearNuevaCuentaPageCommand {  get ; set;}
         public IniciarSesionViewModel()
         {
-            PushAsyncPageCommand = new Command(PushAsyncPage);
+            PushAsyncPaginaPrincipalPageCommand = new Command(PushAsyncpPaginaPrincipalPage);
+            PushAsyncpCrearNuevaCuentaPageCommand = new Command(PushAsyncpCrearNuevaCuentaPage);
         }
         public void OnPropertyChanged([CallerMemberName] string name = "") =>
             PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(name));
 
-        public async void PushAsyncPage()
+        public async void PushAsyncpPaginaPrincipalPage()
         {
             //await Application.Current.MainPage.Navigation.PushAsync(new PaginaPrincipalPage());
             int respuesta = VerificarInicioSesion(Usuario, Contrasena);
@@ -87,6 +88,11 @@ namespace TesisApp.ViewModels
                 return 0;
             }
             return -1;
+        }
+
+        public async void PushAsyncpCrearNuevaCuentaPage()
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new CrearNuevaCuentaPage());
         }
     }
 }

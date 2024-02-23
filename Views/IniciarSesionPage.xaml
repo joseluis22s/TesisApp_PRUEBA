@@ -16,7 +16,7 @@
             <GradientStop Offset="1.0" Color="#044fc7" />
         </LinearGradientBrush>
     </ContentPage.Background>
-    
+
     <VerticalStackLayout VerticalOptions="Center">
         <Frame
             Margin="0,-70"
@@ -59,7 +59,8 @@
                             HorizontalOptions="FillAndExpand"
                             IsTextPredictionEnabled="False"
                             Placeholder="Usuario"
-                            VerticalTextAlignment="End" Text="{Binding Usuario}"/>
+                            Text="{Binding Usuario}"
+                            VerticalTextAlignment="End" />
                     </Grid>
                 </Frame>
                 <Frame
@@ -75,7 +76,8 @@
                             Grid.Column="1"
                             IsPassword="True"
                             Placeholder="Contraseña"
-                            VerticalTextAlignment="End" Text="{Binding Contrasena}" />
+                            Text="{Binding Contrasena}"
+                            VerticalTextAlignment="End" />
                     </Grid>
                 </Frame>
                 <Label
@@ -86,7 +88,7 @@
                 <Button
                     Grid.Row="3"
                     Margin="0,15,0,0"
-                    Command="{Binding PushAsyncPageCommand}"
+                    Command="{Binding PushAsyncPaginaPrincipalPageCommand}"
                     Text="Ingresar" />
                 <Grid
                     Grid.Row="4"

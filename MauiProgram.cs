@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
+using TesisApp.DataBase.Repositories;
 
 namespace TesisApp
 {
@@ -15,6 +16,8 @@ namespace TesisApp
             }).UseMauiCommunityToolkit();
 #if DEBUG
             builder.Logging.AddDebug();
+
+            builder.Services.AddSingleton<UsuarioDatabase>();
 #endif
             return builder.Build();
         }

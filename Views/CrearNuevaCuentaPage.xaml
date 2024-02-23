@@ -3,7 +3,12 @@
     x:Class="TesisApp.Views.CrearNuevaCuentaPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="CrearNuevaCuentaPage">
+    xmlns:ViewModel="clr-namespace:TesisApp.ViewModels"
+    Title="CrearNuevaCuentaPage ">
+
+    <ContentPage.BindingContext>
+        <ViewModel:CrearNuevaCuentaViewModel/>
+    </ContentPage.BindingContext>
 
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="1,0">
@@ -36,12 +41,25 @@
                     Offset="-20,0" />
             </Border.Shadow>
 
-            <VerticalStackLayout Margin="10,20,10,35" Spacing="20">
-                <Label
-                    Margin="0,0,0,15"
-                    FontAttributes="Bold"
-                    FontSize="18"
-                    Text="CREAR NUEVA CUENTA" />
+            <VerticalStackLayout Margin="10,17,10,35" Spacing="20">
+                <Grid ColumnDefinitions="*,30">
+                    <Label
+                        Margin="15,0"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        Text="CREAR NUEVA CUENTA"
+                        VerticalOptions="End"/>
+                    <Image
+                        Grid.Column="1"
+                        Margin="-15,0,0,0"
+                        HeightRequest="28"
+                        Source="back_icon.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ImgBackIcon_OnTapGestureRecognizerCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+
                 <Grid Margin="20,0,40,0">
                     <VerticalStackLayout Spacing="8">
                         <Grid
@@ -107,11 +125,12 @@
                             </Grid>
                         </Border>
                     </VerticalStackLayout>
-                    <Border IsVisible="False"
+                    <Border
                         Padding="7"
                         BackgroundColor="White"
                         HorizontalOptions="End"
-                        VerticalOptions="Start" >
+                        IsVisible="False"
+                        VerticalOptions="Start">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="5" />
                         </Border.StrokeShape>
@@ -129,12 +148,12 @@
             Grid.Row="1"
             Margin="50,40,50,15"
             Text="Crear" />
-        <Label
+        <!--<Label
             Grid.Row="2"
             Margin="0,5"
             HorizontalOptions="Center"
             Text="Cancelar"
             TextColor="#b0cfff"
-            TextDecorations="Underline" />
+            TextDecorations="Underline" />-->
     </Grid>
 </ContentPage>
